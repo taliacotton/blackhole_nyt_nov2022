@@ -1,0 +1,382 @@
+@font-face {
+    font-family: Cheltenham;
+    src: url(/assets/fonts/NYTCheltenhamLight.otf);
+}
+
+@font-face {
+    font-family: Franklin Gothic;
+    src: url(/assets/fonts/NYTFranklinMedium.otf);
+}
+
+:root{
+    --cheltenham: 'Cheltenham', Georgia, Times, serif;
+    --franklin: 'Franklin Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Helvetica, sans-serif
+    
+}
+
+#container{
+    /* width:100%;
+    height: 90vh; */
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0px;
+    left:0px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-size: 24px;
+    scroll-behavior: smooth;
+    background: #221135;
+    overflow:hidden;
+    color: white;
+}
+
+h5{
+    font-family: var(--franklin);
+    font-weight: normal;
+    font-size:15px;
+    margin: 0px;
+    margin-bottom:1em;
+    opacity:1;
+    transition: 2s;
+}
+
+.invisible{
+    opacity:0;
+}
+
+#feelings-output{
+    font-family: var(--cheltenham);
+    color:white;
+    font-size: 40px;
+    /* width: calc(100% - 150px); */
+    width:100%;
+    /* border:1px solid yellow; */
+    /* overflow:hidden; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;;
+    cursor: grab;
+}
+
+#submit{
+    position: fixed;
+    bottom: 50px;
+    left: 50vw;
+    transform:translateX(-50%);
+    /* position: absolute; */
+    /* bottom: 0px; */
+    background:transparent;
+    font-size: 15px;
+    font-family: var(--franklin);
+    color: rgb(191, 178, 232);
+    border:0px;
+    transition: 2s;
+    padding:0px;
+    cursor: pointer;
+    /* text-decoration: underline; */
+    
+}
+
+
+#feelings-output:active{
+    cursor:grabbing;
+}
+
+#feelings-container{
+    /* border:1px solid red; */
+    position: absolute;
+    top:50%;
+    left: 5%;
+    width:60%;
+    max-width:300px;
+    transform:translateY(-50%);
+    border-radius: 0px 10000px 10000px 0px;
+    height:150px;
+    max-width: 550px;
+    /* overflow:hidden; */
+}
+
+#bg{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left: 0px;
+    object-fit: cover;
+    z-index:-3;
+
+    width: 100vmax;
+    height:100vmax;
+    object-fit: cover;
+    display:block;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    animation: rotateBg 200s linear infinite;
+    /* filter: blur(10px); */
+    /* display:none; */
+}
+
+canvas{
+    position: absolute;
+    animation: rotateBg 300s linear infinite;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.char{
+    /* position:relative; */
+    /* transition: 200ms ease-in; */
+    /* top:0px; */
+    /* left:0px; */
+    /* display: inline-block; */
+
+    /* animation: rotate 10s linear infinite; */
+    /* transform-origin: 50px; */
+
+    
+}
+
+#black-hole{
+    position:fixed;
+    top:50vh;
+    left:50vw;
+    transform:translate(-50%, -50%);
+    width: 0px;
+    height:0px;
+    z-index:-1;
+    transition: 800ms ease-in;
+}
+
+#black-hole > * {
+    position: absolute;
+}
+
+#black-hole #hole{
+    width:100%;
+    height:100%;
+    background:black;
+    border-radius:50%;
+    box-shadow: 0px 0px 4px #7A767E;
+    z-index:1;
+}
+
+#black-hole #ring1{
+    width: 160%;
+    height:160%;
+    animation: rotateBlackHole 10s linear infinite;
+}
+
+#black-hole #ring2{
+    width: 140%;
+    height:140%;
+    animation: rotateBlackHole 7s linear infinite;
+}
+
+#black-hole #ring3{
+    width: 170%;
+    height:160%;
+    animation: rotateBlackHole 7s linear infinite;
+}
+
+
+.ring{
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.ring svg{
+    width:100%;
+    height:100%;
+}
+
+#black-hole.ready{
+    width: 33.33vmin;
+    height:33.33vmin;
+}
+
+.absolute{
+    position:absolute;
+    animation: rotate 10s linear infinite;
+}
+
+#blinkingCursor{
+    height:1.5em;
+    width:1px;
+    display: inline-block;
+    background: white;
+    animation: blink 800ms linear infinite;
+    transform: translateY(-20%);
+    position: absolute;
+}
+
+#placeholder{
+}
+
+#placeholder::before{
+    content:'This is a test';
+    color:#a27fcb;
+    opacity: 0.5;
+    animation:  shufflePlaceholderText 12s linear infinite,
+                shufflePlaceholderOpacity 12s linear infinite;
+}
+
+#feelings-input{
+    position:fixed;
+    left:calc(-100vw - 500px);
+    top:calc(-100vh - 100px);
+}
+
+.clouds{
+	/* z-index: 2; */
+    /* background:transparent url('/assets/img/clouds.png') repeat top center; */
+	animation: move-clouds-back 100s linear infinite;
+    width:140%;
+    /* height:100%; */
+    mix-blend-mode: screen;
+    opacity:0.15;
+    position:fixed;
+    top:0px;
+    pointer-events: none;
+    z-index:-2;
+}
+
+#clouds2{
+    animation: move-clouds-back 130s linear infinite reverse;
+    top:100px;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink{
+    0%{
+        opacity:1;
+    }
+    20%{
+        opacity:1;
+    }
+    30%{
+        opacity:0;   
+    }
+    60%{
+        opacity:0
+    }
+    70%{
+        opacity:1 
+    }
+    /* to{opacity:0} */
+}
+
+@keyframes rotateBg{
+    0%{
+        transform:translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50%{
+        transform:translate(-50%, -50%) rotate(180deg) scale(1.6);
+    }
+    100%{
+        transform:translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
+
+@keyframes rotateBlackHole{
+    0%{
+        transform:translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50%{
+        transform:translate(-50%, -50%) rotate(180deg) scale(1.2);
+    }
+    100%{
+        transform:translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
+
+@keyframes shufflePlaceholderOpacity{
+    0%{opacity: 0;}
+    5%{opacity:1;}
+    20%{opacity:1;}
+    25%{opacity: 0;}
+    30%{ opacity:1;}
+    45%{opacity:1;}
+    50%{opacity:0;}
+    55%{opacity:1;}
+    70%{opacity:1;}
+    75%{opacity:0;}
+    80%{opacity:1;}
+    95%{opacity:1;}
+    100%{opacity:0;}
+}
+
+@keyframes shufflePlaceholderText{
+    0%{content: "I’m feeling...";}
+    24.9999%{content: "I’m feeling...";}
+    25%{content: "Placeholder 2...";}
+    49.999%{content: "Placeholder 2...";}
+    50%{content: "prompt 3";}
+    74.999%{content: "prompt 3";}
+    75%{content: "prompt 4";}
+    99.999%{content: "prompt 4";}
+}
+
+
+
+/* @keyframes shufflePlaceholder{
+    0%{
+        content: "I'm feeling sad...";
+        opacity: 0;
+    }
+    5%{opacity:1;}
+    20%{opacity:1;}
+    25%{
+        content: "I'm feeling defeated...";
+        opacity: 0;
+    }
+    30%{ opacity:1;}
+    45%{
+        opacity:1;
+        content: "I'm feeling defeated...";
+    }
+
+    50%{opacity:0;}
+    51%{content: "I'm feeling something else..."}
+    52%{opacity:0}
+
+    55%{opacity:1;}
+    70%{opacity:1;}
+    75%{opacity:0;}
+    76%{content: "When will it stop..."}
+    77%{opacity:0}
+    80%{opacity:1;}
+    95%{opacity:1;}
+    100%{
+        opacity:0;
+    }
+} */
+
+
+
+@keyframes move-clouds-back {
+	from {
+        left:-50vw;
+        transform:rotate(0deg)
+    }
+	to {
+        left:50vw;
+        transform:rotate(-180deg)
+    }
+}
