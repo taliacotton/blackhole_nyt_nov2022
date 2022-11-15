@@ -91,17 +91,18 @@ h5#header.invisible,
 }
 
 #bg{
-    width:100%;
-    height:100%;
+    background-image: url(/assets/img/space.jpg);
+    background-size:100vw;
+    background-repeat:repeat;
     position:absolute;
-    top:0px;
-    left: 0px;
-    object-fit: cover;
+    /* top:0px; */
+    /* left: 0px; */
+    /* object-fit: cover; */
     z-index:-3;
 
-    width: 100vmax;
-    height:100vmax;
-    object-fit: cover;
+    width: 130vmax;
+    height:130vmax;
+    /* object-fit: cover; */
     display:block;
     top:50%;
     left:50%;
@@ -112,13 +113,17 @@ h5#header.invisible,
 }
 
 canvas{
-    position: fixed;
-    animation: rotateBg 300s linear infinite;
+    position: absolute;
+    animation: rotateCanvas 300s linear infinite !important;
     z-index: 0;
-    left: 50vw !important;
-    top: 50vh !important;
+    /* left: 50% !important; */
+    /* top: 50% !important; */
     pointer-events: none;
     z-index: -2;
+    border: 2px solid red;
+    top:0px !important;
+    left:0px !important;
+    /* transform:translate(-50%, -50%); */
 }
 
 #black-hole{
@@ -308,6 +313,18 @@ canvas{
     }
     100%{
         transform:translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
+@keyframes rotateCanvas{
+    0%{
+        transform:rotate(0deg) scale(1.3);
+    }
+    50%{
+        transform:rotate(180deg) scale(1.8);
+    }
+    100%{
+        transform:rotate(360deg) scale(1.3);
     }
 }
 
