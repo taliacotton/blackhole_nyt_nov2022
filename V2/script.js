@@ -33,28 +33,26 @@ let outputHeight, outputWidth;
 
 //TO DO: Select input when scroll to it
 setInterval(function(){
-    output.focus();
+    input.focus();
 },50)
 
-// function convertToSpans(textElem){
-//     let text = textElem.innerHTML;
-// }
+function convertToSpans(textElem){
+    let text = textElem.innerHTML;
+}
 
-// convertToSpans(output);
+convertToSpans(output);
 
 //move the text from the input element into the output element
-output.addEventListener("input", function(){
-    // output.innerHTML = input.value;
+input.addEventListener("input", function(){
+    output.innerHTML = input.value;
     
     blackHole.classList.add("ready");
     
-    if (output.innerHTML == ''){
-        output.classList.remove("hasText")
-        // output.innerHTML = emptyTextPlaceholder;
+    if (input.value == ''){
+        output.innerHTML = emptyTextPlaceholder;
         header.classList.remove("invisible");
         btnSubmit.classList.add("invisible");
     } else {
-        output.classList.add("hasText")
         header.classList.add("invisible");
         btnSubmit.classList.remove("invisible");
     }
@@ -62,7 +60,6 @@ output.addEventListener("input", function(){
 
 window.addEventListener("keydown", function(e){
     if (e.key == "Enter"){
-        console.log("launch triggered");
         if (input.value != ''){
             triggerLaunch();
         }
@@ -73,13 +70,9 @@ window.addEventListener("keydown", function(e){
 function triggerLaunch(){
     outputHeight = output.offsetHeight;
     outputWidth = output.offsetWidth;
-    btnSubmit.style.display="none";
     charsToSpans();
     addPositions(chars, makePosAbsolute);
     launch(chars);
-    setTimeout(function(){
-        blackHole.classList.remove("ready")
-    }, 2100)
 }
 
 function charsToSpans(){
@@ -97,7 +90,7 @@ function addPositions(nodes, callback){
     // let parent = nodes[0].parentElement;
     for (let node of nodes){
         let node_x = node.offsetLeft;
-        let node_y = node.offsetTop - outputHeight/2;
+        let node_y = node.offsetTop - outputHeight/2 - 4;
         //necessary for positioning 
         node.style.left = node_x + "px";
         node.style.top = node_y + "px";

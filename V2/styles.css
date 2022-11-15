@@ -32,34 +32,45 @@
     color: white;
 }
 
-h5#header{
-    font-family: var(--cheltenham);
+h5{
+    font-family: var(--franklin);
     font-weight: normal;
-    font-size:17px;
+    font-size:16px;
     margin: 0px;
     margin-bottom:1em;
     opacity:1;
     transition: 2s;
     line-height:1.25;
-    max-width: 230px;
-    position:absolute;
-    margin-bottom: 1em;
-    transform:translateY(calc(-100% - 1em));
 }
 
-h5#header.invisible,
-#submit.invisible{
+.invisible{
     opacity:0;
 }
-#submit{
+
+#feelings-output{
+    font-family: var(--cheltenham);
+    color:white;
+    font-size: 36px;
+    /* width: calc(100% - 150px); */
+    width:100%;
+    /* border:1px solid yellow; */
+    /* overflow:hidden; */
     position: absolute;
-    /* bottom: 50px; */
-    left: 0px;
-    transform:translateY(100%);
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;;
+    cursor: grab;
+}
+
+#submit{
+    position: fixed;
+    bottom: 50px;
+    left: 50vw;
+    transform:translateX(-50%);
     /* position: absolute; */
     /* bottom: 0px; */
     background:transparent;
-    font-size: 14px;
+    font-size: 15px;
     font-family: var(--franklin);
     color: rgb(191, 178, 232);
     border:0px;
@@ -67,12 +78,13 @@ h5#header.invisible,
     padding:0px;
     cursor: pointer;
     /* text-decoration: underline; */
-    background: #326891;
-    border-radius: 5px;
-    color: white;
-    padding: 8px 30px;
+    
 }
 
+
+#feelings-output:active{
+    cursor:grabbing;
+}
 
 #feelings-container{
     /* border:1px solid red; */
@@ -83,11 +95,9 @@ h5#header.invisible,
     max-width:300px;
     transform:translateY(-50%);
     border-radius: 0px 10000px 10000px 0px;
-    /* height:150px; */
+    height:150px;
     max-width: 550px;
     /* overflow:hidden; */
-
-    position:fixed;
 }
 
 #bg{
@@ -193,69 +203,28 @@ canvas{
     transform: translateY(-20%);
     position: absolute;
 }
+
 #placeholder{
-    position: absolute;
-    top:0px;
-    left:0px;
 }
 
-#placeholder:before{
-    content: ' How are you feeling?';
-    color:#ababab;
-    opacity:0.5;
-    font-family: var(--cheltenham);
-    font-size: 36px;
-    padding-left: 0.25em;
+#placeholder::before{
+    content:'How are you feeling?';
+    color:#a27fcb;
+    opacity: 0.9;
+    /* animation:  shufflePlaceholderText 12s linear infinite,
+                shufflePlaceholderOpacity 12s linear infinite; */
 }
-
-
-
-/* div#feelings-input:focus #placeholder{
-    display:none;
-} */
 
 #feelings-input{
-    /* position:fixed; */
-    /* left:calc(-100vw - 500px);
-    top:calc(-100vh - 100px); */
-    background: transparent;
-    border:0px;
-    outline: none;
-    border-radius: 0px;
-    color: white;
-    font-family: var(--cheltenham);
-    font-size: 36px;
-    /* border: 1px solid red; */
-    width:100%;
-    position:relative;
-}
-
-#feelings-output{
-    font-family: var(--cheltenham);
-    color:white;
-    font-size: 36px;
-    width:100%;
-    /* position: absolute; */
-    left:0px;
-    /* transform: translateY(-50%); */
-    outline: none;
-    top: 50%;
-}
-
-#feelings-output.hasText + #placeholder{
-    visibility:hidden;
-}
-
-
-#feelings-input::placeholder{
-    color:#ababab;
-    opacity:0.6;
+    position:fixed;
+    left:calc(-100vw - 500px);
+    top:calc(-100vh - 100px);
 }
 
 .clouds{
 	/* z-index: 2; */
     /* background:transparent url('/assets/img/clouds.png') repeat top center; */
-	animation: move-clouds-back 200s linear infinite;
+	animation: move-clouds-back 100s linear infinite;
     width:140%;
     /* height:100%; */
     mix-blend-mode: screen;
@@ -267,7 +236,7 @@ canvas{
 }
 
 #clouds2{
-    animation: move-clouds-back 260s linear infinite reverse;
+    animation: move-clouds-back 130s linear infinite reverse;
     top:100px;
 }
 
@@ -304,7 +273,7 @@ canvas{
         transform:translate(-50%, -50%) rotate(0deg) scale(1);
     }
     50%{
-        transform:translate(-50%, -50%) rotate(180deg) scale(1.8);
+        transform:translate(-50%, -50%) rotate(180deg) scale(1.6);
     }
     100%{
         transform:translate(-50%, -50%) rotate(360deg) scale(1);
@@ -390,23 +359,19 @@ canvas{
 
 
 @keyframes move-clouds-back {
-	0% {
+	from {
         left:-50vw;
         transform:rotate(0deg)
     }
-	50% {
+	to {
         left:50vw;
         transform:rotate(-20deg)
-    }
-    100% {
-        left:-50vw;
-        transform:rotate(0deg)
     }
 }
 
 
 @media screen and (max-width: 1145px){
-    #feelings-input{
+    #feelings-output{
         font-size: 3.1441vw;
     }
 }
@@ -418,9 +383,6 @@ canvas{
 }
 
 @media screen and (max-width: 740px){
-    #placeholder:before{
-        content: "I'm feeling...";
-    }
     h5{
         position: absolute;
         top: 0px;
