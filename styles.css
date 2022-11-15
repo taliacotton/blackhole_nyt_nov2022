@@ -208,11 +208,11 @@ canvas{
 }
 
 #placeholder::before{
-    content:'This is a test';
+    content:'How are you feeling?';
     color:#a27fcb;
-    opacity: 0.5;
-    animation:  shufflePlaceholderText 12s linear infinite,
-                shufflePlaceholderOpacity 12s linear infinite;
+    opacity: 0.9;
+    /* animation:  shufflePlaceholderText 12s linear infinite,
+                shufflePlaceholderOpacity 12s linear infinite; */
 }
 
 #feelings-input{
