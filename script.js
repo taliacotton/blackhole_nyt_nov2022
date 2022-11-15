@@ -58,8 +58,16 @@ input.addEventListener("input", function(){
     }
 })
 
+window.addEventListener("keydown", function(e){
+    if (e.key == "Enter"){
+        if (input.value != ''){
+            triggerLaunch();
+        }
+    }
+})
 
-function fullDisappearProcess(){
+
+function triggerLaunch(){
     outputHeight = output.offsetHeight;
     outputWidth = output.offsetWidth;
     charsToSpans();
