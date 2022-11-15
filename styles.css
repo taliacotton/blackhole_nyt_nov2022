@@ -14,6 +14,10 @@
     
 }
 
+body{
+    background: black;
+}
+
 #container{
     /* width:100%;
     height: 90vh; */
@@ -27,9 +31,12 @@
     font-smoothing: antialiased;
     font-size: 24px;
     scroll-behavior: smooth;
-    background: #221135;
+    /* background: #221135; */
+    background: black;
     overflow:hidden;
     color: white;
+    opacity: 1;
+    transition: opacity 800ms;
 }
 
 h5#header{
@@ -92,7 +99,7 @@ h5#header.invisible,
 
 #bg{
     background-image: url(/assets/img/space.jpg);
-    background-size:100vw;
+    background-size:100vmax;
     background-repeat:repeat;
     position:absolute;
     /* top:0px; */
@@ -108,6 +115,8 @@ h5#header.invisible,
     left:50%;
     transform:translate(-50%, -50%);
     animation: rotateBg 200s linear infinite;
+    filter: blur(0px);
+    transition: filter 800ms;
     /* filter: blur(10px); */
     /* display:none; */
 }
@@ -118,11 +127,13 @@ canvas{
     z-index: 0;
     /* left: 50% !important; */
     /* top: 50% !important; */
+    filter: blur(0px);
     pointer-events: none;
     z-index: -2;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     top:0px !important;
     left:0px !important;
+    transition: filter 800ms;
     /* transform:translate(-50%, -50%); */
 }
 
@@ -182,6 +193,11 @@ canvas{
 #black-hole.ready{
     width: 33.33vmin;
     height:33.33vmin;
+}
+
+#black-hole.done{
+    transition: width 500ms ease-in, height 500ms ease-in;
+    transform: translate(-50%, -50%) rotate(1000deg)
 }
 
 .absolute{
@@ -274,6 +290,16 @@ canvas{
 #clouds2{
     animation: move-clouds-back 260s linear infinite reverse;
     top:100px;
+}
+
+#container.done .clouds,
+#container.done #bg,
+#container.done canvas{
+    filter: blur(15px);
+}
+
+#container.gone{
+    opacity:0;
 }
 
 @keyframes rotate{
@@ -433,6 +459,16 @@ canvas{
         width: 50%;
     }
 } */
+
+@media screen and (min-width: 1200px){
+    h5#header{
+        font-size: 1.416vw;
+        max-width: 19.167vw;
+    }
+    #feelings-input, #feelings-output, #placeholder:before{
+        font-size: 3vw;
+    }
+}
 
 @media screen and (max-width: 740px){
     #placeholder:before{

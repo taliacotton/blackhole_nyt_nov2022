@@ -4,6 +4,7 @@ let output = document.getElementById("feelings-output");
 let btnSubmit = document.getElementById("submit");
 let header = document.getElementById("header");
 let blackHole = document.getElementById("black-hole");
+// let canvas = document.getElementById("canvas");
 
 let chars;
 
@@ -87,11 +88,20 @@ function triggerLaunch(){
     charsToSpans();
     addPositions(chars, makePosAbsolute);
     launch(chars);
-    // setTimeout(function(){
-        // blackHole.classList.remove("ready");
+    setTimeout(function(){
+        // blackHole.style.transition = "width 500ms ease-in, height 500ms ease-in";
+        blackHole.classList.remove("ready");
+        blackHole.classList.add("done");
         // blackHole.style.width = '130vmax'
         // blackHole.style.height = '130vmax'
-    // }, 2100)
+    }, 2100)
+    setTimeout(function(){
+        // container.classList.add("done");
+        
+        container.classList.add("gone");
+    },2600)
+    // setTimeout(function(){
+    // },3500)
 }
 
 function charsToSpans(){
