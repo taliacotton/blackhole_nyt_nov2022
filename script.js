@@ -20,6 +20,8 @@ if (window.innerWidth < 740){
     smallScreen = true;
 }
 
+output.focus();
+
 //TO DO: Select input when scroll to it
 // setInterval(function(){
 //     output.focus();

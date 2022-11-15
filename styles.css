@@ -45,17 +45,20 @@ body{
 h5#header{
     font-family: var(--cheltenham);
     font-weight: normal;
-    font-size:17px;
+    /* font-size:17px; */
+    font-size:28px;
     margin: 0px;
     margin-bottom:1em;
     opacity:1;
     transition: opacity 2s;
     line-height:1.25;
-    max-width: 230px;
+    /* max-width: 230px; */
     position:absolute;
     margin-bottom: 1em;
     transform:translateY(calc(-100% - 1em));
     -webkit-transform:translateY(calc(-100% - 1em));
+    max-width: 365px;
+    
 }
 
 h5#header.invisible,
@@ -95,6 +98,7 @@ h5#header.invisible,
     border-radius: 0px 10000px 10000px 0px;
     max-width: 550px;
     position:fixed;
+    width: 75%;
 }
 
 #bg{
@@ -222,8 +226,9 @@ canvas{
     color:#ababab;
     opacity:0.5;
     font-family: var(--cheltenham);
-    font-size: 36px;
+    /* font-size: 36px; */
     padding-left: 0.25em;
+    font-size:62px;
 }
 
 #feelings-input{
@@ -233,15 +238,17 @@ canvas{
     border-radius: 0px;
     color: white;
     font-family: var(--cheltenham);
-    font-size: 36px;
+    /* font-size: 36px; */
     width:100%;
     position:relative;
+    font-size:62px;
 }
 
 #feelings-output{
     font-family: var(--cheltenham);
     color:white;
-    font-size: 36px;
+    /* font-size: 36px; */
+    font-size:62px;
     width:100%;
     left:0px;
     outline: none;
@@ -368,11 +375,11 @@ canvas{
 
 @media screen and (min-width: 1200px){
     h5#header{
-        font-size: 1.416vw;
-        max-width: 19.167vw;
+        /* font-size: 1.416vw; */
+        /* max-width: 19.167vw; */
     }
     #feelings-input, #feelings-output, #placeholder:before{
-        font-size: 3vw;
+        /* font-size: 3vw; */
     }
     #placeholder:before, #feelings-input, #feelings-output{
         font-weight: 300;
@@ -383,10 +390,12 @@ canvas{
 @media screen and (max-width: 740px){
     #placeholder:before{
         content: "I’m feeling...";
+        font-size:45px;
     }
     h5#header{
         position: static;
         transform: translateY(0px);
+        font-size:22px;
     }
     #feelings-container{
         width: 75%;
