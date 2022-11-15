@@ -3,14 +3,6 @@
    
    var canvas = document.getElementById("canvas");
    var context = canvas.getContext('2d');
-
-
-   setTimeout(function(){
-    canvas.width = Math.max(window.innerWidth, window.innerHeight)*1.15;
-     canvas.height = Math.max(window.innerWidth, window.innerHeight)*1.15;
-   }, 100)
-
-  
    
    function Dot() {
      this.alive = true;

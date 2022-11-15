@@ -20,7 +20,7 @@
             <input type="text" id="feelings-input">
             
             <div id="feelings-container">
-                <h5 id="header">Did yesterday’s announcement stir up some old emotions? Tell us what’s been swirling around in your head. Go on, get it off your chest.</h5>
+                <h5 id="header">Tell us what’s been swirling around in your head since last night.<br>Go on, get it off your chest.</h5>
                 <div id="feelings-output">
                     <span id="blinkingCursor"></span>
                     <span id="placeholder"></span>
@@ -28,7 +28,7 @@
                 <!-- <input type="button"> -->
                 
             </div>
-            <input type="button" class="invisible" id="submit" value="Click here to launch it away" onclick="fullDisappearProcess()">
+            <input type="button" class="invisible" id="submit" value="Click & drag to launch it away" onclick="makeDisappear()">
             <div id="black-hole">
                 <div id="hole"></div>
                 <div class="ring" id="ring1">
@@ -86,8 +86,9 @@
         </div>
         
         <script src="letterize.min.js" async defer></script>
-        <script src="script.js" async defer></script>
+        <script src="drag.js" async defer></script>
+        <!-- <script src="script.js" async defer></script> -->
         <script src="small-dust.js" async defer></script>
-        <script src="cursor-move-canvas.js" async defer></script>
+        <!-- <script src="cursor-move-canvas.js" async defer></script> -->
     </body>
 </html>
