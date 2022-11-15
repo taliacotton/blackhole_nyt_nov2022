@@ -73,7 +73,7 @@ h5#header.invisible,
     font-family: var(--franklin);
     color: rgb(191, 178, 232);
     border:0px;
-    transition: 2s;
+    transition: opacity 2s;
     padding:0px;
     cursor: pointer;
     background: #326891;
@@ -152,31 +152,40 @@ canvas{
     border-radius:50%;
     box-shadow: 0px 0px 4px #7A767E;
     z-index:1;
+    position: absolute;
 }
 
 #black-hole #ring1{
     width: 160%;
     height:160%;
+    top:-30%;
+    left:-30%;
     animation: rotateBlackHole 10s linear infinite;
 }
 
 #black-hole #ring2{
     width: 140%;
     height:140%;
+    top: -20%;
+    left:-20%;
     animation: rotateBlackHole 7s linear infinite;
 }
 
 #black-hole #ring3{
     width: 170%;
     height:160%;
+    top: -30%;
+    left: -35%;
     animation: rotateBlackHole 7s linear infinite;
 }
 
 .ring{
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    -webkit-transform:translate(-50%, -50%);
+    /* top:50%; */
+    /* left:50%; */
+    position: absolute;
+    /* transform:translate(-50%, -50%); */
+    /* -webkit-transform:translate(-50%, -50%); */
+    z-index:-2;
 }
 .ring svg, .ring img{
     width:100%;
@@ -204,6 +213,8 @@ canvas{
     position: absolute;
     top:0px;
     left:0px;
+    user-select: none;
+    pointer-events: none;
 }
 
 #placeholder:before{
@@ -308,7 +319,7 @@ canvas{
 }
 
 
-@keyframes rotateBlackHole{
+/* @keyframes rotateBlackHole{
     0%{
         transform:translate(-50%, -50%) rotate(0deg) scale(1);
         -webkit-transform:translate(-50%, -50%) rotate(0deg) scale(1);
@@ -320,6 +331,21 @@ canvas{
     100%{
         transform:translate(-50%, -50%) rotate(360deg) scale(1);
         -webkit-transform:translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+} */
+
+@keyframes rotateBlackHole{
+    0%{
+        transform:rotate(0deg) scale(1);
+        -webkit-transform:rotate(0deg) scale(1);
+    }
+    50%{
+        transform:rotate(180deg) scale(1.2);
+        -webkit-transform:rotate(180deg) scale(1.2);
+    }
+    100%{
+        transform:rotate(360deg) scale(1);
+        -webkit-transform:rotate(360deg) scale(1);
     }
 }
 

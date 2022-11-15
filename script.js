@@ -36,6 +36,18 @@ input.addEventListener("touchstart", function(){
     output.focus();
 })
 
+output.addEventListener("focus", function(){
+    console.log("focusing");
+})
+
+output.addEventListener("focusout", function(){
+    console.log("unfocusing");
+})
+
+document.addEventListener("touchstart", function(e){
+    console.log(e.target);
+})
+
 //move the text from the input element into the output element
 output.addEventListener("input", function(e){
     if (e.key == "Enter"){
