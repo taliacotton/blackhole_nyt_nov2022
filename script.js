@@ -49,7 +49,7 @@ setInterval(function(){
 // convertToSpans(output);
 
 input.addEventListener("touchstart", function(){
-    output.style.border = "3px solid red";
+    // output.style.border = "3px solid red";
     output.focus();
 })
 
