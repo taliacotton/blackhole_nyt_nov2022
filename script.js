@@ -21,9 +21,9 @@ if (window.innerWidth < 740){
 }
 
 //TO DO: Select input when scroll to it
-setInterval(function(){
-    output.focus();
-},50)
+// setInterval(function(){
+//     output.focus();
+// },50)
 
 // function convertToSpans(textElem){
 //     let text = textElem.innerHTML;
@@ -36,13 +36,13 @@ input.addEventListener("touchstart", function(){
     output.focus();
 })
 
-output.addEventListener("focus", function(){
-    console.log("focusing");
-})
+// output.addEventListener("focus", function(){
+//     console.log("focusing");
+// })
 
-output.addEventListener("focusout", function(){
-    console.log("unfocusing");
-})
+// output.addEventListener("focusout", function(){
+//     console.log("unfocusing");
+// })
 
 document.addEventListener("touchstart", function(e){
     console.log(e.target);
