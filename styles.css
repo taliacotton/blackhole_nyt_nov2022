@@ -92,11 +92,12 @@ h5#header.invisible,
     top:50%;
     left: 5%;
     width:60%;
-    max-width:300px;
+    /* max-width:300px; */
     transform:translateY(-50%);
     -webkit-transform:translateY(-50%);
     border-radius: 0px 10000px 10000px 0px;
-    max-width: 550px;
+    max-width: 700px;
+    /* max-width: 550px; */
     position:fixed;
     width: 75%;
 }
@@ -402,8 +403,8 @@ canvas{
         left: 12.5%;
         top: 60px;
     }
-    #feelings-output{
-        font-size: 30px;
+    #feelings-output, #feelings-input{
+        font-size: 45px;
     }
     #feelings-container{
         transform: translateY(0px);
