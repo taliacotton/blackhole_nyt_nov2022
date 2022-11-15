@@ -405,7 +405,7 @@ canvas{
 }
 
 
-@media screen and (max-width: 1145px){
+/* @media screen and (max-width: 1145px){
     #feelings-input{
         font-size: 3.1441vw;
     }
@@ -415,23 +415,29 @@ canvas{
     #feelings-container{
         width: 50%;
     }
-}
+} */
 
 @media screen and (max-width: 740px){
     #placeholder:before{
-        content: "I'm feeling...";
+        content: "I’m feeling...";
     }
-    h5{
-        position: absolute;
-        top: 0px;
-        left: 0px;
+    h5#header{
+        position: static;
+        transform: translateY(0px);
     }
     #feelings-container{
         width: 75%;
         left: 12.5%;
-        top: 30%;
+        top: 60px;
     }
     #feelings-output{
         font-size: 30px;
+    }
+    #feelings-container{
+        transform: translateY(0px);
+    }
+    #black-hole.ready {
+        width: 75vmin;
+        height: 75vmin;
     }
 }
