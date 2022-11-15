@@ -39,7 +39,7 @@ h5#header{
     margin: 0px;
     margin-bottom:1em;
     opacity:1;
-    transition: 2s;
+    transition: opacity 2s;
     line-height:1.25;
     max-width: 230px;
     position:absolute;

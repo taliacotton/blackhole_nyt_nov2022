@@ -12,11 +12,16 @@ let cursorOrigin = {};
 let mouseIsDown = false;
 
 let submitted = false;
+let smallScreen = false;
 
 let emptyTextPlaceholder = `<span id="blinkingCursor"></span><span id="placeholder">I’m feeling sad...</span>`
 
 
 let outputHeight, outputWidth;
+
+if (window.innerWidth < 740){
+    smallScreen = true;
+}
 
 
 // function resizeContainer(){
@@ -41,6 +46,11 @@ setInterval(function(){
 // }
 
 // convertToSpans(output);
+
+input.addEventListener("touchstart", function(){
+    output.style.border = "3px solid red";
+    output.focus();
+})
 
 //move the text from the input element into the output element
 output.addEventListener("input", function(){
@@ -77,9 +87,11 @@ function triggerLaunch(){
     charsToSpans();
     addPositions(chars, makePosAbsolute);
     launch(chars);
-    setTimeout(function(){
-        blackHole.classList.remove("ready")
-    }, 2100)
+    // setTimeout(function(){
+        // blackHole.classList.remove("ready");
+        // blackHole.style.width = '130vmax'
+        // blackHole.style.height = '130vmax'
+    // }, 2100)
 }
 
 function charsToSpans(){
@@ -97,7 +109,13 @@ function addPositions(nodes, callback){
     // let parent = nodes[0].parentElement;
     for (let node of nodes){
         let node_x = node.offsetLeft;
-        let node_y = node.offsetTop - outputHeight/2;
+        let node_y;
+        if (!smallScreen){
+            node_y = node.offsetTop - outputHeight/2;
+        } else {
+            node_y = node.offsetTop;
+        }
+        
         //necessary for positioning 
         node.style.left = node_x + "px";
         node.style.top = node_y + "px";
