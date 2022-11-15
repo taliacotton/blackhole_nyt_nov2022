@@ -439,5 +439,7 @@ canvas{
     #black-hole.ready {
         width: 75vmin;
         height: 75vmin;
+        max-width: 300px;
+        max-height: 300px;
     }
 }
