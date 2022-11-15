@@ -171,8 +171,14 @@ function launch(chars){
                     draw: function(progress) {
                         // char.style.left = `${(startX + prep_x + prep_x_random)+(window.innerWidth + dest_x_random)*progress}px`;
                         char.style.left = startX + progress * (window.innerWidth / 2 - startX) + `px`;
-                        char.style.top = startY + progress * (outputHeight/10 - startY) + `px`;
-                        console.log(progress);
+                        // char.style.top = startY + progress * (outputHeight/10 - startY) + `px`;
+                        console.log(startY);
+                        let boundsY = char.getBoundingClientRect().y;
+                        let destY = window.innerHeight/2;
+                        let bounds_dest_dist = destY - boundsY;
+                        
+                        char.style.top = startY + progress * bounds_dest_dist + `px`;
+                        // console.log(progress);
                         char.style.opacity = 1 - progress ;
                     }
                 });
