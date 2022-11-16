@@ -103,7 +103,12 @@ h5#header.invisible,
 }
 
 #bg{
-    background-image: url(/assets/img/space.jpg);
+    background-image: url(/assets/img/space_custom3.jpg);
+    /* background-image: url(/assets/img/space6.jpg); */
+    /* background-image: url(/assets/img/space10.jpg); */
+
+    /* background-image: url(/assets/img/shutterstock_1100442107.jpg); */
+    /* background-image: url(/assets/img/shutterstock_1704790186.jpg); */
     background-size:100vmax;
     background-repeat:repeat;
     position:absolute;
