@@ -33,7 +33,7 @@ output.focus();
 
 // convertToSpans(output);
 
-input.addEventListener("touchstart", function(){
+input.addEventListener("click", function(){
     // output.style.border = "3px solid red";
     output.focus();
 })
